@@ -16,7 +16,7 @@ public class GlobalStateManager : MonoBehaviour
     public GameState GetCurrentGameState() => CurrentGameState;
 
     public static event Action<GameState> OnGameStateChanged;
-    private static readonly Lazy<GlobalStateManager> _lazyLoadedSceneManager = new Lazy<GlobalStateManager>(() => new GlobalStateManager());
+    private static readonly Lazy<GlobalStateManager> _lazyLoadedStateManager = new Lazy<GlobalStateManager>(() => new GlobalStateManager());
     protected GlobalStateManager(){}
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class GlobalStateManager : MonoBehaviour
     {
         get
         {
-            return _lazyLoadedSceneManager.Value;
+            return _lazyLoadedStateManager.Value;
         }
     }
 
